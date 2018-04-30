@@ -3,17 +3,14 @@
 <?php get_header(); ?>
 
 <?php
-// HERO
-//get_template_part('template-parts/home', 'hero');
-
-// WHAT SETS US APART
-//get_template_part('template-parts/home', 'module-2');
-
-// HOW IT WORKS
-//get_template_part('template-parts/home', 'module-3');
-
-// OUR STORY
-//get_template_part('template-parts/home', 'module-4');
-?>
+$blogusers = get_users( 'blog_id=1&orderby=nicename' );
+// Array of WP_User objects.
+foreach ( $blogusers as $user ) : ?>
+<div>
+  <span><?php echo esc_html( $user->user_email ); ?></span>
+  <span><?php echo esc_html( $user->display_name ); ?></span>
+  <span><?php the_field('eye_color'); ?></span>
+</div>
+<?php endforeach; ?>
 
 <?php get_footer(); ?>
