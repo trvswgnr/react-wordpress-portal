@@ -22,3 +22,5 @@ include_function('remove-head-junk');
 include_function('remove-autoformatting');
 
 include_function('remove-wpversion-nag');
+
+include_function('add-posts-from-category');
