@@ -24,3 +24,5 @@ include_function('remove-autoformatting');
 include_function('remove-wpversion-nag');
 
 include_function('add-posts-from-category');
+
+include_function('add-user-role-body-class');
