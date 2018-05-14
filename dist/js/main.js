@@ -78,27 +78,35 @@ module.exports = __webpack_require__(3);
 "use strict";
 
 
-//require('./events.js');
-__webpack_require__(2);
-//require('./social-sharing.js');
+__webpack_require__(4);
 
 /***/ }),
-/* 2 */
+/* 2 */,
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-$('.js-menu-toggle').click(function () {
-  $('.mobile-menu').toggleClass('is-active');
-  $('html').toggleClass('nav-open');
+$('.user').click(function () {
+  var $this = $(this);
+  $('.user').removeClass('is-active');
+  $this.toggleClass('is-active');
 });
 
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
+$('.section.for-users').on('click', '.user__close, .user__details', function () {
+  $('.user').removeClass('is-active');
+  console.log('click');
+});
 
-// removed by extract-text-webpack-plugin
+// hide categories that contain nothing
+$('.category').has('.nothing').hide();
 
 /***/ })
 /******/ ]);
