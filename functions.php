@@ -1,6 +1,6 @@
 <?php
 
-// little function to include partials for functions
+// helper function to include partials for functions
 function include_function($filename) {
   return require_once( dirname( __FILE__ ) . '/functions/' . $filename . '.php' );
 }
@@ -21,8 +21,6 @@ include_function('remove-head-junk');
 
 include_function('remove-autoformatting');
 
-include_function('remove-wpversion-nag');
-
-include_function('add-posts-from-category');
-
 include_function('add-user-role-body-class');
+
+include_function('add-custom-login');
