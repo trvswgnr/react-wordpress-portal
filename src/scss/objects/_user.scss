@@ -1,0 +1,71 @@
+/**
+  * User
+  */
+
+.section.for-users {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user {
+  width: 25%;
+  background: blue;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.user.is-active .user__details {
+  width: 100vw;
+  display: block;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(white,0.9);
+}
+
+.user.not-active {
+  width: 25%;
+  order: 1;
+}
+
+.user:nth-child(odd) {
+  background-color: salmon;
+}
+
+.user__details {
+  display: none;
+  padding: 2em;
+}
+
+.user__close {
+  position: absolute;
+  top: 0; right: 0;
+  height: 40px;
+  width: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  background: grey;
+
+  &:before, &:after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: black;
+    position: absolute;
+    display: block;
+    transform: rotate(45deg);
+    margin-top: 50%;
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}
+
+.category.is-empty {
+  display: none;
+}
