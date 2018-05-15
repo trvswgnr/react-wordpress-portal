@@ -24,3 +24,8 @@
   font-weight: 300;
   letter-spacing: 1px;
 }
+
+.login #login_error, .login .message {
+  border-color: #757575;
+}
+
