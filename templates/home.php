@@ -11,31 +11,34 @@ foreach ($users as $user) :
   $skills = get_field('skills', 'user_'. $user_id );
   $user_photo = get_field('photo', 'user_'. $user_id );
 ?>
-    <div class="user" style="background-image: url(<?php echo $user_photo['url']; ?>)">
+    <div class="user" style="<?php if ($user_photo) : ?>background-image: url(<?php echo $user_photo['url']; ?>); <?php endif; ?>">
+      <div class="user__preview">
+
+      </div>
       <div class="user__details">
-      <div class="user__close"></div>
-      <span class="user__name"><?php echo $user_name; ?></span>
-      <?php $categories = get_categories(); ?>
-      <?php foreach ( $categories as $category ) : ?>
-      <?php $category_name = $category->name; ?>
-      <?php $category_id = get_cat_ID($category_name); ?>
-      <div class="category">
-        <?php $parent = get_cat_name($category->parent); ?>
-        <div class="parent"><?php echo $category_id; ?><?php echo $parent; ?></div>
-        <?php if( $skills ) : ?>
-          <h3 class="category__name"><?php echo $category_name; ?></h3>
-          <?php foreach( $skills as $post): ?>
-            <?php if (has_category($category_name, $post->ID)) : ?>
-              <?php setup_postdata( $post ); ?>
-              <span><?php the_title(); ?></span>
-              <?php wp_reset_postdata(); ?>
-            <?php else : ?>
-              <div class="nothing"></div>
-            <?php endif;//has_category ?>
-          <?php endforeach;//$skills as $post ?>
-        <?php endif;//$skills ?>
-      </div><!-- /.category -->
-      <?php endforeach;//$categories as $category ?>
+        <div class="user__close"></div>
+        <h2 class="user__name"><?php echo $user_name; ?></h2>
+        <div class="categories-wrapper">
+        <?php $categories = get_categories(); ?>
+        <?php foreach ( $categories as $category ) : ?>
+        <?php $category_name = $category->name; ?>
+        <?php $category_id = get_cat_ID($category_name); ?>
+        <ul class="category category--<?php echo strtolower($category_name); ?>">
+          <?php $parent = get_cat_name($category->parent); ?>
+          <?php if( $skills ) : ?>
+            <h3 class="category__name"><?php if ($category_name == 'Uncategorized') { echo 'Other'; } else { echo $category_name; } ?></h3>
+            <?php foreach( $skills as $post): ?>
+              <?php if (has_category($category_name, $post->ID)) : ?>
+                <?php setup_postdata( $post ); ?>
+                <li><?php the_title(); ?></li>
+                <?php wp_reset_postdata(); ?>
+              <?php else : ?>
+              <?php endif;//has_category ?>
+            <?php endforeach;//$skills as $post ?>
+          <?php endif;//$skills ?>
+        </ul><!-- /.category -->
+        <?php endforeach;//$categories as $category ?>
+        </div><!-- /.categories-wrapper -->
       </div><!-- /.user__details -->
     </div><!-- /.user -->
 <?php
