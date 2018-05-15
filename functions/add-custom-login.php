@@ -53,4 +53,17 @@ function login_checked_remember_me() {
   add_filter( 'login_footer', 'remember_me_checked' );
 }
 add_action( 'init', 'login_checked_remember_me' );
+
+// change default 'Register For This Site' message to custom text
+function change_registration_message($message) {
+  // change messages that contain 'Register'
+  if (strpos($message, 'Register') !== FALSE) {
+    $new_message = "Please register for the skills portal.";
+    return '<p class="message register">' . $new_message . '</p>';
+  }
+  else {
+    return $message;
+  }
+}
+add_action('login_message', 'change_registration_message');
 ?>
