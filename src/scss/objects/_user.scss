@@ -10,7 +10,7 @@
 
 .user {
   width: 25%;
-  background: blue;
+  background: url('https://loremflickr.com/320/320/face');
   min-height: 300px;
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(white,0.9);
+  background: rgba(white,0.95);
 }
 
 .user.not-active {
@@ -32,7 +32,7 @@
 }
 
 .user:nth-child(odd) {
-  background-color: salmon;
+//  background-color: salmon;
 }
 
 .user__details {
@@ -40,15 +40,18 @@
   padding: 2em;
 }
 
+.user__name {
+  margin-bottom: 1em;
+}
+
 .user__close {
+  $this_height: 50px;
   position: absolute;
-  top: 0; right: 0;
-  height: 40px;
-  width: 40px;
+  top: $this_height/2; right: $this_height/2;
+  height: $this_height; width: $this_height;
   font-weight: bold;
   cursor: pointer;
   z-index: 1000;
-  background: grey;
 
   &:before, &:after {
     content: '';
@@ -68,4 +71,27 @@
 
 .category.is-empty {
   display: none;
+}
+
+.categories-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+// color category titles differently
+
+.category__name {
+  font-weight: bold;
+}
+
+.category--experience .category__name {
+  color: $color__secondary;
+}
+
+.category--storytelling .category__name {
+  color: $color__accent;
+}
+
+.category--performance .category__name {
+  color: $color__primary;
 }
