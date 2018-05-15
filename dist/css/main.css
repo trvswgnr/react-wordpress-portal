@@ -68,13 +68,11 @@ html {
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
   box-sizing: border-box; }
-  html.nav-open, html.nav-open #page {
-    overflow-y: hidden; }
 
 body {
   color: #111111;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
   font-family: "Poppins", arial, sans-serif;
   overflow-x: hidden; }
@@ -115,7 +113,7 @@ h2, .h2 {
 h3, .h3 {
   font-weight: 400;
   font-size: 1.5em;
-  margin-bottom: 0.7em; }
+  margin-bottom: 0.2em; }
 
 .hr--small {
   width: 60px;
@@ -127,7 +125,7 @@ h3, .h3 {
   margin-left: 0; }
 
 .hr--primary {
-  border-color: #b2d357; }
+  border-color: #ad0100; }
 
 .hr--secondary {
   border-color: #00ace4; }
@@ -184,7 +182,7 @@ address {
   color: #ffffff !important; }
 
 .u-color-primary {
-  color: #b2d357 !important; }
+  color: #ad0100 !important; }
 
 .u-color-link {
   color: #00ace4 !important; }
@@ -824,7 +822,7 @@ address {
 
 .user {
   width: 25%;
-  background: blue;
+  background: url("https://loremflickr.com/320/320/face");
   min-height: 300px;
   background-size: cover;
   background-position: center; }
@@ -836,29 +834,28 @@ address {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.95); }
 
 .user.not-active {
   width: 25%;
   order: 1; }
 
-.user:nth-child(odd) {
-  background-color: salmon; }
-
 .user__details {
   display: none;
   padding: 2em; }
 
+.user__name {
+  margin-bottom: 1em; }
+
 .user__close {
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 40px;
-  width: 40px;
+  top: 25px;
+  right: 25px;
+  height: 50px;
+  width: 50px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 1000;
-  background: grey; }
+  z-index: 1000; }
   .user__close:before, .user__close:after {
     content: '';
     height: 2px;
@@ -873,6 +870,22 @@ address {
 
 .category.is-empty {
   display: none; }
+
+.categories-wrapper {
+  display: flex;
+  justify-content: space-around; }
+
+.category__name {
+  font-weight: bold; }
+
+.category--experience .category__name {
+  color: #00ace4; }
+
+.category--storytelling .category__name {
+  color: #fdbf29; }
+
+.category--performance .category__name {
+  color: #ad0100; }
 
 /**
   * -- COMPONENTS
@@ -901,12 +914,12 @@ address {
   max-width: 250px; }
 
 .btn--primary {
-  background: #b2d357;
+  background: #ad0100;
   color: white;
   transition: 0.1s; }
   .btn--primary:hover, .btn--primary:visited:hover {
     color: white;
-    background: #a5cc3b;
+    background: #890100;
     transition: 0.3s;
     cursor: pointer; }
 

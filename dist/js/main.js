@@ -78,28 +78,23 @@ module.exports = __webpack_require__(3);
 "use strict";
 
 
-__webpack_require__(4);
+__webpack_require__(2);
 
 /***/ }),
-/* 2 */,
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+// click user to show user details
 $('.user').click(function () {
   var $this = $(this);
   $('.user').removeClass('is-active');
   $this.toggleClass('is-active');
 });
 
+// close user details
 $('.section.for-users').on('click', '.user__close, .user__details', function () {
   $('.user').removeClass('is-active');
   console.log('click');
@@ -107,6 +102,12 @@ $('.section.for-users').on('click', '.user__close, .user__details', function () 
 
 // hide categories that contain nothing
 $('.category').has('.nothing').hide();
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
