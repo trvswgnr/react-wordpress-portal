@@ -13,15 +13,12 @@ html {
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
   box-sizing: border-box;
-   &.nav-open, &.nav-open #page {
-    overflow-y: hidden;
-  }
 }
 
 body {
   color: $color__text;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
   font-family: $font__body;
   overflow-x: hidden;
