@@ -1,0 +1,29 @@
+/**
+  * skills and cateegories
+  */
+.category.is-empty {
+  display: none;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+// color category titles differently
+
+.category__name {
+  font-weight: bold;
+}
+
+.category--experience .category__name {
+  color: $color__secondary;
+}
+
+.category--storytelling .category__name {
+  color: $color__accent;
+}
+
+.category--performance .category__name {
+  color: $color__primary;
+}
