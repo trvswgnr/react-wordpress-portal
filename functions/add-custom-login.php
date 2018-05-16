@@ -30,20 +30,20 @@ function no_login_shake() {
 add_action('login_head', 'no_login_shake');
 
 // redirect so that it doesn't go to wp-admin panel
-//function admin_login_redirect($redirect_to, $request, $user) {
-//  global $user;
-//
-//  if( isset( $user->roles ) && is_array( $user->roles ) ) {
-//    if( in_array( "administrator", $user->roles ) ) {
-//      return $redirect_to;
-//    } else {
-//      return home_url();
-//    }
-//  } else {
-//    return $redirect_to;
-//  }
-//}
-//add_filter("login_redirect", "admin_login_redirect", 10, 3);
+function admin_login_redirect($redirect_to, $request, $user) {
+  global $user;
+
+  if( isset( $user->roles ) && is_array( $user->roles ) ) {
+    if( in_array( "administrator", $user->roles ) ) {
+      return $redirect_to;
+    } else {
+      return home_url();
+    }
+  } else {
+    return $redirect_to;
+  }
+}
+add_filter("login_redirect", "admin_login_redirect", 10, 3);
 
 // automatically check Remember Me
 function remember_me_checked() {
@@ -66,4 +66,5 @@ function change_registration_message($message) {
   }
 }
 add_action('login_message', 'change_registration_message');
+
 ?>
