@@ -24,3 +24,7 @@ include_function('remove-autoformatting');
 include_function('add-user-role-body-class');
 
 include_function('add-custom-login');
+
+include_function('change-wp-admin');
+
+include_function('add-admin-scripts');
