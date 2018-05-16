@@ -1,8 +1,8 @@
-/*********************************************************
-    Flexbox grid
-*********************************************************/
+/**
+  * Flexbox Grid
+  */
 $container-width: 1030px;
-$gutter: 1rem;
+$gutter: 0;
 
 .container {
   position: relative;
@@ -22,6 +22,7 @@ $gutter: 1rem;
 }
 
 .row {
+  width: 100%;
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
