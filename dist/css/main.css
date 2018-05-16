@@ -1,6 +1,6 @@
-/*********************************************************
-  Main.scss == Table of Contents
-*********************************************************/
+/****************************************************
+  main.scss == Table of Contents
+****************************************************/
 /**
   * -- BASE
   */
@@ -54,9 +54,12 @@ h1, h2, h3, h4, h5, h6 {
 button, input[type='submit'] {
   -webkit-appearance: none; }
 
-/*********************************************************
-    Base DOM Elements
-*********************************************************/
+/**
+  * Basic DOM Elements
+  */
+* {
+  box-sizing: inherit; }
+
 html {
   background-color: white;
   font-size: 16px;
@@ -196,14 +199,14 @@ address {
 /**
   * -- LAYOUT
   */
-/*********************************************************
-    Flexbox grid
-*********************************************************/
+/**
+  * Flexbox Grid
+  */
 .container {
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1030px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem; }
@@ -215,6 +218,7 @@ address {
   padding-left: 1rem; }
 
 .row {
+  width: 100%;
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
@@ -226,8 +230,8 @@ address {
   flex-wrap: wrap; }
   @media (min-width: 768px) {
     .row {
-      margin-right: -1rem;
-      margin-left: -1rem; } }
+      margin-right: 0;
+      margin-left: 0; } }
 
 .row.reverse {
   -webkit-flex-direction: row-reverse;
@@ -243,8 +247,8 @@ address {
   flex: 0 0 auto; }
   @media (min-width: 768px) {
     [class*="col-xs"] {
-      padding-right: 1rem;
-      padding-left: 1rem; } }
+      padding-right: 0;
+      padding-left: 0; } }
 
 .col-xs-1 {
   -webkit-flex-basis: 8.3333333333%;
@@ -397,8 +401,8 @@ address {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem; }
+    padding-right: 0;
+    padding-left: 0; }
   .col-sm-1 {
     -webkit-flex-basis: 8.3333333333%;
     flex-basis: 8.3333333333%;
@@ -516,8 +520,8 @@ address {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem; }
+    padding-right: 0;
+    padding-left: 0; }
   .col-md-1 {
     -webkit-flex-basis: 8.3333333333%;
     flex-basis: 8.3333333333%;
@@ -635,8 +639,8 @@ address {
     box-sizing: border-box;
     -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem; }
+    padding-right: 0;
+    padding-left: 0; }
   .col-lg-1 {
     -webkit-flex-basis: 8.3333333333%;
     flex-basis: 8.3333333333%;
@@ -749,63 +753,12 @@ address {
     -webkit-order: 1;
     order: 1; } }
 
-/*********************************************************
-    Header
-*********************************************************/
-.logo {
-  max-width: 230px;
-  display: flex; }
-  .logo img {
-    height: 100%;
-    width: 100%; }
-
-.header__inner {
-  padding: 1.5em 0 2.5em;
-  background: white; }
-  @media (max-width: 768px) {
-    .header__inner {
-      padding-bottom: 1.5em; } }
-
-.header__row {
-  align-items: flex-end; }
-  @media (max-width: 768px) {
-    .header__row {
-      align-items: center; } }
-
-/*********************************************************
-    Footer
-*********************************************************/
-.footer {
-  text-align: center;
-  padding: 3em 0; }
-
-.footer__logo {
-  max-width: 200px;
-  width: 100%;
-  margin: 0 auto 1.5em; }
-
-.footer__info {
-  margin-bottom: 0.5em;
-  word-wrap: break-word; }
-
-@media (max-width: 768px) {
-  .footer__info span {
-    display: block;
-    width: 100%;
-    margin-bottom: 0.5em; } }
-
-.footer__images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5em;
-  width: 100%; }
-
-.footer-image {
-  padding: 0.5em 1em; }
-  .footer-image img {
-    max-height: 100px; }
-
+/**
+  * Header
+  */
+/**
+  * Footer
+  */
 /**
   * Section
   */
@@ -821,28 +774,62 @@ address {
   flex-wrap: wrap; }
 
 .user {
-  width: 25%;
+  order: 2;
+  position: relative; }
+  .user:after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    border: 16px solid transparent;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: white;
+    opacity: 0;
+    transition: bottom 0.2s, opacity 0.3s; }
+
+.user.is-active:after {
+  bottom: -2px;
+  opacity: 1;
+  transition: bottom 0.2s, opacity 0.3s; }
+
+.even .user:after {
+  bottom: initial;
+  top: -20px;
+  border-color: transparent;
+  border-top-color: white;
+  transition: top 0.2s, opacity 0.2s; }
+
+.even .user.is-active:after {
+  bottom: initial;
+  top: 0;
+  transition: top 0.2s, opacity 0.4s; }
+
+.user__inner {
+  width: 100%;
   background: url("https://loremflickr.com/320/320/face");
   min-height: 300px;
   background-size: cover;
   background-position: center; }
 
-.user.is-active .user__details {
-  width: 100vw;
-  display: block;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.95); }
-
 .user.not-active {
   width: 25%;
-  order: 1; }
+  order: 2; }
 
 .user__details {
   display: none;
-  padding: 2em; }
+  padding: 0;
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  order: 3; }
+  .even .user__details {
+    order: 1; }
+
+.details__inner {
+  padding: 3em 4em; }
 
 .user__name {
   margin-bottom: 1em; }
@@ -868,12 +855,15 @@ address {
   .user__close:after {
     transform: rotate(-45deg); }
 
+/**
+  * skills and cateegories
+  */
 .category.is-empty {
   display: none; }
 
-.categories-wrapper {
+.categories {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-between; }
 
 .category__name {
   font-weight: bold; }
