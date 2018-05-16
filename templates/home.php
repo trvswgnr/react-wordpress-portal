@@ -44,5 +44,6 @@ foreach ($users as $user) :
 <?php
 endforeach; //foreach $user
 ?>
+
 </div><!-- /.section.for-users -->
 <?php get_footer(); ?>
