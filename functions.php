@@ -37,3 +37,5 @@ include_function('add-custom-login');
 include_function('change-wp-admin');
 
 include_function('add-admin-scripts');
+
+show_admin_bar(false);

@@ -4,7 +4,7 @@
 
 <div class="section for-users">
 <?php
-$users = get_users('blog_id=1&orderby=nicename');
+$users = get_users('blog_id=1&role=Subscriber&orderby=nicename');
 
 ?>
   <?php
@@ -13,13 +13,26 @@ $users = get_users('blog_id=1&orderby=nicename');
   $column_width = 12 / $columns;
   ?>
   <div class="row">
-   <?php foreach ($users as $user) :
-      $user_id = $user->ID;
-      $user_name = esc_html( $user->display_name );
-      $user_photo = get_field('photo', 'user_'. $user_id );
-    ?>
-    <div class="user col-md-<?php echo $column_width; ?>">
-      <div class="user__inner" style="<?php if ($user_photo) : ?>background-image: url(<?php echo $user_photo['url']; ?>); <?php endif; ?>">
+  <?php
+  foreach ($users as $user) :
+    $user_id    = $user->ID;
+    $user_photo = get_field('photo', 'user_'. $user_id );
+    $first_name = get_field('first_name', 'user_'. $user_id );
+    $last_name  = get_field('last_name', 'user_'. $user_id );
+    $user_name = $first_name . ' ' . $last_name;
+  ?>
+    <div class="user col-xs-<?php echo $column_width; ?>">
+      <div class="user__inner" style="<?php if ($user_photo) : ?>background-image: url(<?php echo $user_photo['url']; ?>);<?php else: ?>background-image: url(https://d3iw72m71ie81c.cloudfront.net/male-1<?php echo $user_id; ?>.jpg);<?php endif; ?>">
+
+      <div class="user__preview user-preview">
+        <div class="user-preview__inner">
+          <h5 class="user-preview__name">
+            <?php echo $first_name; ?>'s
+          </h5>
+          <?php include(module('skills', 'top')); ?>
+        </div>
+      </div>
+
       </div><!-- /.user -->
     </div><!-- /.user.col-md-4 -->
     <div class="user__details">
@@ -38,14 +51,13 @@ $users = get_users('blog_id=1&orderby=nicename');
     $row_count++;
     if($row_count % $columns == 0) :
     ?>
-    </div>
+  </div>
+  <div class="row<?php if ($row_count % 2 == 0) { echo " even"; } ?>">
+  <?php endif; ?>
+<?php endforeach;//users as user ?>
 
-    <div class="row<?php if ($row_count % 2 == 0) { echo " even"; } ?>">
-    <?php endif; ?>
-  <?php endforeach;//users as user ?>
 
-
-    </div><!-- /.row -->
+  </div><!-- /.row -->
 
 </div><!-- /.section.for-users -->
 <?php get_footer(); ?>

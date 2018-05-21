@@ -1,3 +1,14 @@
+body {
+/*  background: linear-gradient(to top left, #5d0000, #ad0100);*/
+}
+
+#login {
+  width: 100%;
+  padding: 8% 0 0;
+  margin: auto;
+  max-width: 600px;
+}
+
 /* change the login logo */
 .login h1 a {
   background-image: url('../img/logo.svg');
@@ -27,4 +38,27 @@
 
 .login #login_error, .login .message {
   border-color: #757575;
+}
+
+
+/* change button things */
+.wp-core-ui .button-primary {
+  background: #ad0100 ;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus {
+  background: #ad0100 ;
+}
+
+.wp-core-ui .button-primary-disabled,
+.wp-core-ui .button-primary.disabled,
+.wp-core-ui .button-primary:disabled,
+.wp-core-ui .button-primary[disabled] {
+  background: #ad0100 !important;
+  text-shadow: none !important;
 }

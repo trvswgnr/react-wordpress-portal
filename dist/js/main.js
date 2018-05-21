@@ -79,6 +79,7 @@ module.exports = __webpack_require__(3);
 
 
 __webpack_require__(2);
+__webpack_require__(5);
 
 /***/ }),
 /* 2 */
@@ -110,6 +111,91 @@ $('.category').has('.nothing').hide();
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Global Variables and Methods
+ */
+
+var viewport_width = exports.viewport_width = $(window).width();
+
+/**
+ * Determine if the target element is in view and if so return true
+ */
+var is_in_view = exports.is_in_view = function is_in_view(target) {
+  var el_offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+  var amount_scrolled = $(window).scrollTop();
+  var el_position = $(target).offset();
+  el_position = el_position ? el_position.top : '';
+
+  var offset = el_offset;
+  var trigger_position = el_position - offset;
+  if (amount_scrolled >= trigger_position) {
+    return true;
+  }
+};
+
+/**
+ * Adds the :onScreen pseudo selector to jQuery to affect elements visible in the viewport.
+ */
+(function ($) {
+  $.expr[":"].onScreen = function (elem) {
+    var $window = $(window);
+    var viewport_top = $window.scrollTop();
+    var viewport_height = $window.height();
+    var viewport_bottom = viewport_top + viewport_height;
+    var $elem = $(elem);
+    var top = $elem.offset().top;
+    var height = $elem.height();
+    var bottom = top + height;
+
+    return top >= viewport_top && top < viewport_bottom || bottom > viewport_top && bottom <= viewport_bottom || height > viewport_height && top <= viewport_top && bottom >= viewport_bottom;
+  };
+})(jQuery);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _globals = __webpack_require__(4);
+
+/**
+  * These functions execute in order.
+  */
+(function () {})();
+
+/**
+  * Events that fire when the page is loaded.
+  */
+/**
+ * -- EVENTS
+ */
+$(document).ready(function () {
+
+  setTimeout(function () {
+    $('body').addClass('is-loaded');
+  }, 200);
+}); // /.ready
+
+
+/**
+ * Events that fire on Window Scroll
+ */
+
+$(window).scroll(function () {}); // /.scroll
 
 /***/ })
 /******/ ]);

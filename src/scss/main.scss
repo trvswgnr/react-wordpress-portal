@@ -2,6 +2,9 @@
   main.scss == Table of Contents
 ****************************************************/
 
+// -- VENDOR
+@import 'vendor/animate';
+
 /**
   * -- BASE
   */
@@ -16,6 +19,7 @@
   * -- LAYOUT
   */
 @import 'layout/grid';
+@import 'layout/css-grid';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/section';

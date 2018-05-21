@@ -23,7 +23,12 @@ body {
   line-height: 1.5;
   font-family: $font__body;
   overflow-x: hidden;
+  opacity: 0;
 
+  &.is-loaded {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
 }
 
 #page {

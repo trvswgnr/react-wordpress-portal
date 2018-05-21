@@ -36,8 +36,6 @@ body.role-subscriber {
   width: 100%;
 }
 
-
-
 .role-subscriber #wpbody-content {
   padding: 2em calc(4vw + 1em);
   background: white;
@@ -132,5 +130,9 @@ html.wp-toolbar {
 
 /* hide the Screen Options button */
 .role-subscriber .screen-options-link-wrap {
+  display: none;
+}
+
+.update-nag {
   display: none;
 }
